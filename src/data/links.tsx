@@ -40,4 +40,4 @@ const links = [
 ];
 
 export default links;
-export const mailId = "deviatorsclub5@gmail.com";
+export const mailId = "clubdeviators@gmail.com";
