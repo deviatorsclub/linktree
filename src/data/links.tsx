@@ -1,5 +1,5 @@
 import { Globe } from "lucide-react";
-import { FaDiscord, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaDiscord, FaInstagram, FaLinkedin, FaWhatsapp, FaTwitter } from "react-icons/fa";
 
 const links = [
   {
@@ -36,6 +36,13 @@ const links = [
     href: "https://linkedin.com/company/deviators-club",
     subline: "Professional network",
     color: "from-blue-600 to-blue-800",
+  },
+  {
+    name: "X",
+    icon: FaTwitter,
+    href: "https://x.com/clubdeviators",
+    subline: "Follow us on X",
+    color: "from-blue-400 to-blue-600",
   },
 ];
 
