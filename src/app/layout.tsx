@@ -2,22 +2,22 @@ import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import "./globals.css";
 
-// Font configuration with optimized loading
+// Optimized font configuration
 const quicksand = Quicksand({
-  weight: ["300", "400", "500", "700"],
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
   display: "swap",
   fallback: ["Arial", "sans-serif"],
+  preload: true,
 });
 
-// SEO and social media metadata
+// Optimized SEO metadata
 export const metadata: Metadata = {
   title: "Linktree | Deviators Club",
   description: "Connect with Deviators Club - Code. Create. Deviate.",
   keywords: ["Deviators Club", "coding", "development", "community", "links"],
   authors: [{ name: "Deviators Club" }],
-
-  // Open Graph metadata for social sharing
+  
   openGraph: {
     title: "Linktree | Deviators Club",
     description: "Connect with Deviators Club - Code. Create. Deviate.",
@@ -34,8 +34,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-
-  // Twitter/X card metadata
+  
   twitter: {
     card: "summary_large_image",
     title: "Linktree | Deviators Club",
@@ -43,8 +42,7 @@ export const metadata: Metadata = {
     creator: "@deviatorsclub",
     images: ["https://linktree.deviatorsdce.tech/og-image.png"],
   },
-
-  // Additional metadata
+  
   robots: {
     index: true,
     follow: true,

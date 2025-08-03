@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Enable experimental features for better performance
   experimental: {
-    optimizePackageImports: ["lucide-react", "react-icons"],
+    optimizePackageImports: ["lucide-react", "react-icons", "framer-motion"],
   },
 
   // Image optimization configuration
@@ -14,12 +14,12 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
-  // Compiler options
+  // Compiler options for production optimization
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
 
-  // Headers for security and performance
+  // Performance and security headers
   async headers() {
     return [
       {
@@ -34,8 +34,16 @@ const nextConfig: NextConfig = {
             value: "nosniff",
           },
           {
+            key: "X-XSS-Protection",
+            value: "1; mode=block",
+          },
+          {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
           },
         ],
       },

@@ -5,26 +5,29 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import links from "@/data/links";
 import LOGO from "@/assets/sm.svg";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
-// Animation variants for staggered link appearance
+// Optimized animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.1, ease: "easeOut" },
   },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
+  show: { opacity: 1, y: 0, transition: { ease: "easeOut" } },
 };
 
 export default function LandingPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center px-4 py-8 text-white sm:py-12 md:py-16">
+    <>
+      {/* 3D Background */}
+      <AnimatedBackground />
+
+      <div className="relative z-10 flex min-h-screen flex-col items-center px-4 py-8 text-white sm:py-12 md:py-16">
       {/* Fixed logo for desktop - positioned top-left */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
@@ -37,6 +40,7 @@ export default function LandingPage() {
             src={LOGO}
             alt="Deviators Club Logo"
             fill
+            sizes="80px"
             className="rounded-none border-none object-contain p-1"
             priority
           />
@@ -58,6 +62,7 @@ export default function LandingPage() {
               src={LOGO}
               alt="Deviators Club Logo"
               fill
+              sizes="96px"
               className="rounded-none border-none object-contain p-2"
               priority
             />
@@ -65,10 +70,10 @@ export default function LandingPage() {
 
           {/* Main title and tagline */}
           <div className="space-y-1 text-center sm:space-y-2 md:-mt-20">
-            <h1 className="whitespace-nowrap font-pixelify text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="whitespace-nowrap font-pixelify text-4xl font-bold drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">
               Deviators Club
             </h1>
-            <p className="text-base text-gray-300 sm:text-lg md:text-xl">
+            <p className="text-base text-gray-300 drop-shadow-md sm:text-lg md:text-xl">
               Code. Create. Deviate.
             </p>
           </div>
@@ -120,6 +125,7 @@ export default function LandingPage() {
           ))}
         </motion.div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

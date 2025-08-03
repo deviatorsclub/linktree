@@ -1,13 +1,16 @@
 # Deviators Club Linktree
 
-A modern, responsive linktree implementation built with Next.js 15, featuring glassmorphism design and smooth animations.
+A modern, responsive linktree implementation built with Next.js 15, featuring animated background, glassmorphism design and smooth animations.
 
-## 🚀 Features
+## ✨ Features
 
+- **Animated Background**: CSS-based particle system with floating elements and geometric shapes
 - **Modern Design**: Clean, glassmorphism UI with liquid glass effects
-- **Responsive**: Optimized for all device sizes
-- **Fast Performance**: Built with Next.js 15 and optimized assets
+- **Responsive**: Optimized for all device sizes and screen sizes
+- **Fast Performance**: Built with Next.js 15 and optimized assets (149kB first load)
 - **Accessible**: WCAG compliant with proper focus management
+- **SEO Optimized**: Complete meta tags and social media cards
+- **Production Ready**: Security headers and performance optimizations included
 - **Type Safe**: Full TypeScript implementation
 - **Animated**: Smooth animations using Framer Motion
 
