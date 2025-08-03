@@ -16,13 +16,10 @@ module.exports = {
   extends: [
     "next/core-web-vitals",
     "next/typescript",
-    "eslint:recommended",
-    "@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
     "prettier",
   ],
-  plugins: ["@typescript-eslint", "react", "react-hooks"],
+  plugins: ["@typescript-eslint"],
   rules: {
     // Performance and best practices
     "prefer-const": "warn",
@@ -41,18 +38,5 @@ module.exports = {
         objectLiteralTypeAssertions: "never",
       },
     ],
-
-    // React specific
-    "react/jsx-fragments": ["warn", "syntax"],
-    "react/jsx-filename-extension": ["warn", { extensions: [".tsx"] }],
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
-  },
-  settings: {
-    react: {
-      version: "detect",
-    },
   },
 };

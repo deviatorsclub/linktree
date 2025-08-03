@@ -32,13 +32,13 @@ A modern, responsive linktree implementation built with Next.js 15, featuring gl
 2. **Install dependencies**
 
    ```bash
-   npm install
+   pnpm install
    ```
 
 3. **Run the development server**
 
    ```bash
-   npm run dev
+   pnpm run dev
    ```
 
 4. **Open in browser**
@@ -75,12 +75,12 @@ The design uses Tailwind CSS classes and can be customized in:
 
 ## 📱 Available Scripts
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run format` - Format code with Prettier
-- `npm run type-check` - Check TypeScript types
+- `pnpm run dev` - Start development server
+- `pnpm run build` - Build for production
+- `pnpm run start` - Start production server
+- `pnpm run lint` - Run ESLint
+- `pnpm run format` - Format code with Prettier
+- `pnpm run type-check` - Check TypeScript types
 
 ## 🚀 Deployment
 

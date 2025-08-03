@@ -3,7 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "description": "A modern linktree implementation for Deviators Club",
-  "keywords": ["nextjs", "linktree", "social-links", "deviators-club"],
+  "keywords": [
+    "nextjs",
+    "linktree",
+    "social-links",
+    "deviators-club"
+  ],
   "author": "Deviators Club",
   "license": "MIT",
   "scripts": {
@@ -15,10 +20,10 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md,mdx,css,yaml,yml}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,md,mdx,css,yaml,yml}\"",
     "type-check": "tsc --noEmit",
-    "clean": "rm -rf .next node_modules",
-    "clean:install": "npm run clean && npm install",
-    "dev:clean": "npm run clean:install && npm run dev",
-    "build:clean": "npm run clean:install && npm run build",
+    "clean": "rimraf .next node_modules",
+    "clean:install": "pnpm run clean && pnpm install",
+    "dev:clean": "pnpm run clean:install && pnpm run dev",
+    "build:clean": "pnpm run clean:install && pnpm run build",
     "prepare": "husky"
   },
   "dependencies": {
@@ -37,6 +42,8 @@
     "@types/node": "^20.17.6",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.17",
     "eslint-config-prettier": "^9.1.0",
@@ -45,6 +52,7 @@
     "lint-staged": "^15.2.10",
     "postcss": "^8.4.47",
     "prettier-plugin-tailwindcss": "^0.6.8",
+    "rimraf": "^6.0.1",
     "tailwindcss": "^3.4.14",
     "typescript": "^5.6.3"
   }
