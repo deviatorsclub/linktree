@@ -7,30 +7,30 @@ interface AnimatedBackgroundProps {
 }
 
 // Pre-generate particle positions to avoid hydration issues and improve performance
-const LARGE_PARTICLES = Array.from({ length: 25 }, (_, i) => ({
+const LARGE_PARTICLES = Array.from({ length: 20 }, (_, i) => ({
   id: i,
   left: Math.floor(Math.random() * 100),
   top: Math.floor(Math.random() * 100),
   animationDuration: 8 + Math.floor(Math.random() * 4),
-  animationDelay: Math.floor(Math.random() * 10),
+  animationDelay: Math.floor(Math.random() * 8),
 }));
 
-const SMALL_PARTICLES = Array.from({ length: 40 }, (_, i) => ({
+const SMALL_PARTICLES = Array.from({ length: 35 }, (_, i) => ({
   id: i,
   left: Math.floor(Math.random() * 100),
   top: Math.floor(Math.random() * 100),
   animationDuration: 5 + Math.floor(Math.random() * 3),
-  animationDelay: Math.floor(Math.random() * 15),
+  animationDelay: Math.floor(Math.random() * 12),
 }));
 
-const SHAPES = Array.from({ length: 4 }, (_, i) => ({
+const SHAPES = Array.from({ length: 3 }, (_, i) => ({
   id: i,
   left: Math.floor(Math.random() * 90) + 5,
   top: Math.floor(Math.random() * 90) + 5,
-  width: 30 + Math.floor(Math.random() * 30),
-  height: 30 + Math.floor(Math.random() * 30),
-  animationDuration: 20 + Math.floor(Math.random() * 10),
-  animationDelay: Math.floor(Math.random() * 20),
+  width: 40 + Math.floor(Math.random() * 25),
+  height: 40 + Math.floor(Math.random() * 25),
+  animationDuration: 20 + Math.floor(Math.random() * 8),
+  animationDelay: Math.floor(Math.random() * 15),
   rotation: Math.floor(Math.random() * 360),
 }));
 
@@ -44,7 +44,7 @@ export default function AnimatedBackground({
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setMounted(true), 50);
+    const timer = setTimeout(() => setMounted(true), 100);
     return () => clearTimeout(timer);
   }, []);
 
