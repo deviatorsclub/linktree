@@ -1,74 +1,113 @@
 "use client";
 
-import { Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import links, { mailId } from "@/data/links";
+import links from "@/data/links";
+import LOGO from "@/assets/sm.svg";
 
-import LOGO from "@/assets/logo.png";
+// Animation variants for staggered link appearance
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 },
+};
 
 export default function LandingPage() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-  };
-
   return (
-    <div className="flex min-h-screen flex-col items-center bg-gray-900 px-4 py-8 text-white sm:py-12 md:py-16">
-      <div className="w-full max-w-xs space-y-6 sm:max-w-sm sm:space-y-8 md:max-w-md lg:max-w-lg">
-        {/* Profile */}
+    <div className="flex min-h-screen flex-col items-center px-4 py-8 text-white sm:py-12 md:py-16">
+      {/* Fixed logo for desktop - positioned top-left */}
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+        className="fixed left-6 top-6 z-50 hidden md:block"
+      >
+        <div className="relative h-16 w-20">
+          <Image
+            src={LOGO}
+            alt="Deviators Club Logo"
+            fill
+            className="rounded-none border-none object-contain p-1"
+            priority
+          />
+        </div>
+      </motion.div>
+
+      {/* Main content container with responsive width */}
+      <div className="w-full max-w-sm space-y-6 sm:max-w-md sm:space-y-8 md:max-w-lg lg:max-w-xl xl:max-w-2xl">
+        {/* Brand section with logo and title */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center space-y-3 sm:space-y-4"
         >
-          <div className="relative h-24 w-24 sm:h-28 sm:w-28 md:h-32 md:w-32">
+          {/* Mobile logo - centered above title */}
+          <div className="relative mb-4 h-16 w-24 md:hidden">
             <Image
               src={LOGO}
-              alt="DEViators Club"
+              alt="Deviators Club Logo"
               fill
-              className="rounded-none border-none bg-gray-900 object-contain p-2"
+              className="rounded-none border-none object-contain p-2"
               priority
             />
           </div>
-          <div className="space-y-1 text-center sm:space-y-2">
-            <h1 className="text-2xl font-bold sm:text-3xl md:text-4xl">
-              @deviatorsclub
+
+          {/* Main title and tagline */}
+          <div className="space-y-1 text-center sm:space-y-2 md:-mt-20">
+            <h1 className="whitespace-nowrap font-pixelify text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">
+              Deviators Club
             </h1>
             <p className="text-base text-gray-300 sm:text-lg md:text-xl">
-              Empowering Developers to Innovate!
+              Code. Create. Deviate.
             </p>
           </div>
         </motion.div>
 
-        {/* Links */}
+        {/* Social media and contact links */}
         <motion.div
-          variants={container}
+          variants={containerVariants}
           initial="hidden"
           animate="show"
           className="space-y-3 sm:space-y-4"
         >
           {links.map((link) => (
-            <motion.div key={link.name} variants={item}>
+            <motion.div key={link.name} variants={itemVariants}>
               <Link
                 href={link.href}
                 target="_blank"
-                className={`flex transform items-center space-x-3 rounded-xl bg-gradient-to-r ${link.color} p-3 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl sm:space-x-4 sm:p-4`}
+                rel="noopener noreferrer"
+                className="hover:bg-white/8 hover:shadow-3xl relative flex transform items-center space-x-3 rounded-full border border-white/10 bg-white/5 p-3 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:scale-[1.02] hover:border-white/15 sm:space-x-4 sm:p-4"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%)",
+                  backdropFilter: "blur(20px) saturate(180%)",
+                  WebkitBackdropFilter: "blur(20px) saturate(180%)",
+                }}
               >
-                <link.icon className="h-6 w-6 text-white sm:h-7 sm:w-7 md:h-8 md:w-8" />
-                <div>
+                {/* Brand-colored icon container */}
+                <div
+                  className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full sm:h-12 sm:w-12 md:h-14 md:w-14"
+                  style={{ backgroundColor: link.color }}
+                >
+                  <link.icon
+                    className="h-5 w-5 text-white sm:h-6 sm:w-6 md:h-7 md:w-7"
+                    aria-hidden="true"
+                  />
+                </div>
+
+                {/* Link text content */}
+                <div className="relative z-10">
                   <div className="text-base font-bold text-white sm:text-lg md:text-xl">
                     {link.name}
                   </div>
@@ -80,23 +119,6 @@ export default function LandingPage() {
             </motion.div>
           ))}
         </motion.div>
-
-        <motion.a
-          href={`mailto:${mailId}`}
-          target="_blank"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="flex justify-center"
-        >
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className="rounded-full bg-white p-3 text-gray-900 shadow-lg transition-all duration-300 hover:shadow-xl sm:p-4"
-          >
-            <Mail className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
-            <span className="sr-only">Contact via email</span>
-          </motion.button>
-        </motion.a>
       </div>
     </div>
   );

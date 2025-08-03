@@ -1,35 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Deviators Club Linktree
 
-## Getting Started
+A modern, responsive linktree implementation built with Next.js 15, featuring glassmorphism design and smooth animations.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Modern Design**: Clean, glassmorphism UI with liquid glass effects
+- **Responsive**: Optimized for all device sizes
+- **Fast Performance**: Built with Next.js 15 and optimized assets
+- **Accessible**: WCAG compliant with proper focus management
+- **Type Safe**: Full TypeScript implementation
+- **Animated**: Smooth animations using Framer Motion
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React + React Icons
+- **Font**: Pixelify Sans (Google Fonts)
+
+## 🏃‍♂️ Getting Started
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd linktree-main
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Open in browser**
+   ```
+   http://localhost:3000
+   ```
+
+## 📝 Customization
+
+### Update Links
+
+Edit the links in `src/data/links.tsx`:
+
+```typescript
+const links: LinkData[] = [
+  {
+    name: "Website",
+    icon: Globe,
+    href: "https://your-website.com",
+    subline: "Visit our website",
+    color: "#0047AB",
+  },
+  // Add more links...
+];
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Styling
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The design uses Tailwind CSS classes and can be customized in:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `tailwind.config.ts` - Theme configuration
+- `src/app/globals.css` - Global styles
+- Component files - Individual styling
 
-## Update Links
+## 📱 Available Scripts
 
-To update the links, open `data/links.json` and edit the array of links. Each link object requires a `title`, `href`, and `icon` property. The `icon` property should be the name of a Feather icon.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
+- `npm run type-check` - Check TypeScript types
 
-```json
-[
-    {
-        "title": "GitHub",
-        "href": "
-```
+## 🚀 Deployment
+
+The easiest way to deploy is using [Vercel](https://vercel.com):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+
+## 📄 License
+
+MIT License - see LICENSE file for details.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+Made with ❤️ by [Deviators Club](https://deviatorsclub.tech)
 
 ## Learn More
 

@@ -9,12 +9,42 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      // Custom font families
+      fontFamily: {
+        pixelify: ["'Pixelify Sans'", "cursive"],
+      },
+
+      // Custom colors
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+
+      // Custom animations
+      animation: {
+        "fade-in": "fadeIn 0.5s ease-in-out",
+        "slide-up": "slideUp 0.3s ease-out",
+      },
+
+      // Custom keyframes
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        slideUp: {
+          "0%": { transform: "translateY(20px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+      },
+
+      // Custom backdrop blur values
+      backdropBlur: {
+        xs: "2px",
       },
     },
   },
   plugins: [],
 };
+
 export default config;
