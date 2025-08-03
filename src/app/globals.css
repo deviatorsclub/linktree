@@ -1,3 +1,59 @@
+/* Import Google Fonts with optimized loading */
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&display=swap");
+
+/* Tailwind CSS imports */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Base styles and custom utilities */
+@layer base {
+  /* Improved text rendering */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    outline: 2px solid theme("colors.blue.500");
+    outline-offset: 2px;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  /* Glass morphism utility class */
+  .glass {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+  }
+}
+
+/* Background animations */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  25% { transform: translateY(-20px) translateX(10px); }
+  50% { transform: translateY(-10px) translateX(-10px); }
+  75% { transform: translateY(-30px) translateX(5px); }
+}
+
+@keyframes float-fast {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-15px) translateX(8px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.02; }
+  50% { opacity: 0.05; }
+}

@@ -1,11 +1,26 @@
 import type { Metadata } from "next";
+import { Quicksand } from "next/font/google";
 import "./globals.css";
 
+// Optimized font configuration
+const quicksand = Quicksand({
+  weight: ["400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["Arial", "sans-serif"],
+  preload: true,
+});
+
+// Optimized SEO metadata
 export const metadata: Metadata = {
-  title: "Deviators Club | Get in touch with us",
+  title: "Linktree | Deviators Club",
+  description: "Connect with Deviators Club - Code. Create. Deviate.",
+  keywords: ["Deviators Club", "coding", "development", "community", "links"],
+  authors: [{ name: "Deviators Club" }],
+  
   openGraph: {
-    title: "Deviators Club",
-    description: "Get in touch with us",
+    title: "Linktree | Deviators Club",
+    description: "Connect with Deviators Club - Code. Create. Deviate.",
     url: "https://linktree.deviatorsdce.tech",
     siteName: "Deviators Club",
     images: [
@@ -13,29 +28,42 @@ export const metadata: Metadata = {
         url: "https://linktree.deviatorsdce.tech/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Website preview image",
+        alt: "Deviators Club - Code. Create. Deviate.",
       },
     ],
     locale: "en_US",
     type: "website",
   },
+  
   twitter: {
     card: "summary_large_image",
-    title: "Deviators Club",
-    description: "Get in touch with us",
-    creator: "@devpulkitt",
+    title: "Linktree | Deviators Club",
+    description: "Connect with Deviators Club - Code. Create. Deviate.",
+    creator: "@deviatorsclub",
     images: ["https://linktree.deviatorsdce.tech/og-image.png"],
+  },
+  
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode;
-}>) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={quicksand.className} suppressHydrationWarning>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

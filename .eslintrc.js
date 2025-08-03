@@ -1,7 +1,7 @@
 module.exports = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: 2021,
+    ecmaVersion: 2022,
     sourceType: "module",
     ecmaFeatures: {
       jsx: true,
@@ -9,33 +9,28 @@ module.exports = {
   },
   env: {
     browser: true,
-    es2021: true,
+    es2022: true,
     node: true,
   },
   root: true,
   extends: [
-    "next",
-    "eslint:recommended",
-    "prettier",
     "next/core-web-vitals",
+    "next/typescript",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended",
-    "plugin:react-hooks/recommended",
+    "prettier",
   ],
-  plugins: ["prettier", "@typescript-eslint", "react", "react-hooks"],
+  plugins: ["@typescript-eslint"],
   rules: {
+    // Performance and best practices
     "prefer-const": "warn",
-    "no-var": "warn",
-    "no-unused-vars": "warn",
+    "no-var": "error",
+    "no-unused-vars": "off", // Handled by TypeScript
+    "@typescript-eslint/no-unused-vars": "warn",
     "object-shorthand": "warn",
     "quote-props": ["warn", "as-needed"],
-    "@typescript-eslint/array-type": [
-      "warn",
-      {
-        default: "array",
-      },
-    ],
+
+    // TypeScript specific
+    "@typescript-eslint/array-type": ["warn", { default: "array" }],
     "@typescript-eslint/consistent-type-assertions": [
       "warn",
       {
@@ -43,22 +38,5 @@ module.exports = {
         objectLiteralTypeAssertions: "never",
       },
     ],
-    "react/jsx-fragments": ["warn", "syntax"],
-    "react/jsx-filename-extension": [
-      "warn",
-      {
-        extensions: ["ts", "tsx"],
-      },
-    ],
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
-    "prettier/prettier": "warn",
-  },
-  settings: {
-    react: {
-      version: "detect",
-    },
   },
 };
