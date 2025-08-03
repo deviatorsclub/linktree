@@ -11,7 +11,7 @@ const config: Config = {
     extend: {
       // Custom font families
       fontFamily: {
-        pixelify: ["'Pixelify Sans'", "cursive"],
+        pixelify: ["'Pixelify Sans'"],
       },
 
       // Custom colors
