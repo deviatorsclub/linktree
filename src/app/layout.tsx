@@ -1,14 +1,27 @@
 import type { Metadata } from "next";
-import { Quicksand } from "next/font/google";
+import { Pixelify_Sans, Quicksand } from "next/font/google";
 import "./globals.css";
 
-// Optimized font configuration
+// Optimized font configuration for Pixelify Sans (main heading font)
+const pixelifySans = Pixelify_Sans({
+  weight: ["400", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["cursive", "Arial", "sans-serif"],
+  preload: true,
+  variable: "--font-pixelify",
+  adjustFontFallback: false, // Better performance
+});
+
+// Secondary font for body text
 const quicksand = Quicksand({
   weight: ["400", "500", "700"],
   subsets: ["latin"],
   display: "swap",
   fallback: ["Arial", "sans-serif"],
   preload: true,
+  variable: "--font-quicksand",
+  adjustFontFallback: false, // Better performance
 });
 
 // Optimized SEO metadata
@@ -17,7 +30,7 @@ export const metadata: Metadata = {
   description: "Connect with Deviators Club - Code. Create. Deviate.",
   keywords: ["Deviators Club", "coding", "development", "community", "links"],
   authors: [{ name: "Deviators Club" }],
-  
+
   openGraph: {
     title: "Linktree | Deviators Club",
     description: "Connect with Deviators Club - Code. Create. Deviate.",
@@ -34,7 +47,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  
+
   twitter: {
     card: "summary_large_image",
     title: "Linktree | Deviators Club",
@@ -42,7 +55,7 @@ export const metadata: Metadata = {
     creator: "@deviatorsclub",
     images: ["https://linktree.deviatorsdce.tech/og-image.png"],
   },
-  
+
   robots: {
     index: true,
     follow: true,
@@ -62,8 +75,12 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className={quicksand.className} suppressHydrationWarning>
-      <body className="antialiased">{children}</body>
+    <html
+      lang="en"
+      className={`${pixelifySans.variable} ${quicksand.variable}`}
+      suppressHydrationWarning
+    >
+      <body className={`${quicksand.className} antialiased`}>{children}</body>
     </html>
   );
 }
