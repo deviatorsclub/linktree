@@ -21,7 +21,7 @@ A modern, responsive linktree implementation built with Next.js 15, featuring an
 - **Styling**: Tailwind CSS
 - **Animations**: Framer Motion
 - **Icons**: Lucide React + React Icons
-- **Font**: Pixelify Sans (Google Fonts)
+- **Font**: Pixelify Sans (Local TTF)
 
 ## 🏃‍♂️ Getting Started
 

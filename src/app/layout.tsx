@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import { Pixelify_Sans, Quicksand } from "next/font/google";
+import { Quicksand } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-// Optimized font configuration for Pixelify Sans (main heading font)
-const pixelifySans = Pixelify_Sans({
-  weight: ["400", "600", "700"],
-  subsets: ["latin"],
+// Local Pixelify font configuration
+const pixelifySans = localFont({
+  src: "../../public/fonts/Pixelify.ttf",
   display: "swap",
   fallback: ["cursive", "Arial", "sans-serif"],
   preload: true,
   variable: "--font-pixelify",
-  adjustFontFallback: false, // Better performance
 });
 
 // Secondary font for body text

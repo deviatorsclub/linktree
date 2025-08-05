@@ -40,6 +40,7 @@ export default function LandingPage() {
               src={LOGO}
               alt="Deviators Club Logo"
               fill
+              sizes="80px"
               className="rounded-none border-none object-contain p-1"
               priority
             />
@@ -61,6 +62,7 @@ export default function LandingPage() {
                 src={LOGO}
                 alt="Deviators Club Logo"
                 fill
+                sizes="96px"
                 className="rounded-none border-none object-contain p-2"
                 priority
               />
