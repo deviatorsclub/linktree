@@ -1,5 +1,10 @@
-/* Import Google Fonts with optimized loading */
-@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&display=swap");
+/* Local font face for Pixelify */
+@font-face {
+  font-family: 'Pixelify Sans';
+  src: url('/fonts/Pixelify.ttf') format('truetype');
+  font-weight: 400 700;
+  font-display: swap;
+}
 
 /* Tailwind CSS imports */
 @tailwind base;
