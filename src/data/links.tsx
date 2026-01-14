@@ -25,13 +25,13 @@ export interface LinkData {
 
 // Social media and contact links configuration
 const links: LinkData[] = [
-  {
+  /*{
     name: "DevArena",
     icon: LogoIcon,
     href: "https://devarena.deviatorsclub.tech/",
     subline: "A 30h hackathon",
     color: "#2F4EF5", // DevArena blue
-  },
+  },*/
   {
     name: "Website",
     icon: Globe,
