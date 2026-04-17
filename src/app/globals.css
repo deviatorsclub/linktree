@@ -1,94 +1,203 @@
-/* Local font face for Pixelify */
-@font-face {
-  font-family: 'Pixelify Sans';
-  src: url('/fonts/Pixelify.ttf') format('truetype');
-  font-weight: 400 700;
-  font-display: swap;
-}
-
 /* Tailwind CSS imports */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles and custom utilities */
+/* ── Smooth scrolling ── */
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* ── Hide scrollbars globally ── */
 @layer base {
-  /* Improved text rendering */
+  html,
+  body,
   * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
+
+/* ── Design tokens (dark-only, matching deviatorsclub.tech) ── */
+@layer base {
+  :root {
+    /* Brand palette */
+    --brand: 213 100% 33%;
+    --brand-dark: 210 100% 20%;
+    --brand-light: 215 100% 81%;
+
+    /* Surfaces */
+    --surface: 0 0% 4%;
+    --surface-card: 0 0% 100% / 0.05;
+    --surface-elevated: 0 0% 100% / 0.1;
+
+    /* shadcn-compatible tokens (dark theme) */
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-[hsl(var(--border))];
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
+  body {
+    @apply font-outfit text-[hsl(var(--foreground))];
+  }
+
   /* Focus styles for accessibility */
   *:focus-visible {
-    outline: 2px solid theme("colors.blue.500");
+    outline: 2px solid hsl(var(--brand));
     outline-offset: 2px;
   }
 }
 
-/* Custom component styles */
-@layer components {
-  /* Glass morphism utility class */
-  .glass {
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.08) 0%,
-      rgba(255, 255, 255, 0.02) 100%
-    );
+/* Headings use Unbounded — max weight (900) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-weight: 900;
+}
+
+/* ── Global resets ── */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  scroll-behavior: smooth;
+}
+
+html {
+  height: -webkit-fill-available;
+  background: hsl(var(--surface));
+}
+
+body {
+  height: -webkit-fill-available;
+  min-height: -webkit-fill-available;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@supports (-webkit-touch-callout: none) {
+  html {
+    height: -webkit-fill-available;
+  }
+
+  body {
+    min-height: -webkit-fill-available;
   }
 }
 
-/* Background animations */
+/* ── Glass card component (matching deviatorsclub.tech) ── */
+@layer components {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+  }
+
+  .glass-card-hover {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card-hover:hover {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: blur(24px) saturate(180%);
+  }
+}
+
+/* ── Animation keyframes (matching deviatorsclub.tech) ── */
 @keyframes float-slow {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) translateX(0px);
     opacity: 0.6;
   }
+
   25% {
-    transform: translateY(-20px) translateX(10px);
+    transform: translateY(-10px) translateX(5px);
     opacity: 0.8;
   }
+
   50% {
-    transform: translateY(-10px) translateX(-10px);
+    transform: translateY(-5px) translateX(-5px);
     opacity: 0.4;
   }
+
   75% {
-    transform: translateY(-30px) translateX(5px);
+    transform: translateY(-15px) translateX(10px);
     opacity: 0.7;
   }
 }
 
 @keyframes float-fast {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) translateX(0px);
     opacity: 0.4;
   }
-  50% {
-    transform: translateY(-15px) translateX(8px);
+
+  33% {
+    transform: translateY(-8px) translateX(8px);
     opacity: 0.6;
+  }
+
+  66% {
+    transform: translateY(-3px) translateX(-3px);
+    opacity: 0.2;
   }
 }
 
 @keyframes spin-slow {
   from {
     transform: rotate(0deg);
-    opacity: 0.2;
   }
+
   to {
     transform: rotate(360deg);
-    opacity: 0.2;
   }
 }
 
 @keyframes pulse-slow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.02;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.05;
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 }

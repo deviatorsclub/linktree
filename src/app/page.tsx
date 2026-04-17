@@ -29,7 +29,7 @@ const itemVariants = {
 export default function LandingPage() {
   return (
     <>
-      {/* 3D Background */}
+      {/* Animated Background — matching deviatorsclub.tech */}
       <AnimatedBackground />
 
       <div className="relative z-10 flex min-h-screen flex-col items-center px-4 py-8 text-white sm:py-12 md:py-16">
@@ -76,14 +76,14 @@ export default function LandingPage() {
             {/* Main title and tagline */}
             <div className="space-y-1 text-center sm:space-y-2 md:-mt-20">
               <h1
-                className="whitespace-nowrap font-pixelify text-4xl font-bold drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl"
+                className="whitespace-nowrap font-heading text-4xl font-black drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl"
                 style={{
                   textShadow: "0 0 4px rgba(255, 255, 255, 0.3)",
                 }}
               >
                 Deviators Club
               </h1>
-              <p className="text-base text-gray-300 drop-shadow-md sm:text-lg md:text-xl">
+              <p className="font-outfit text-base text-gray-300 drop-shadow-md sm:text-lg md:text-xl">
                 Code. Create. Deviate.
               </p>
             </div>
@@ -102,13 +102,7 @@ export default function LandingPage() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:bg-white/8 hover:shadow-3xl relative flex transform items-center justify-start space-x-3 rounded-full border border-white/10 bg-white/5 p-3 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:scale-[1.02] hover:border-white/15 sm:space-x-4 sm:p-4"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%)",
-                    backdropFilter: "blur(20px) saturate(180%)",
-                    WebkitBackdropFilter: "blur(20px) saturate(180%)",
-                  }}
+                  className="glass-card-hover relative flex transform items-center justify-start space-x-3 rounded-2xl p-3 shadow-2xl transition-all duration-500 hover:scale-[1.02] sm:space-x-4 sm:p-4"
                 >
                   {/* Brand-colored icon container */}
                   <div
@@ -123,10 +117,10 @@ export default function LandingPage() {
 
                   {/* Link text content */}
                   <div className="relative z-10">
-                    <div className="text-base font-bold text-white sm:text-lg md:text-xl">
+                    <div className="font-outfit text-base font-bold text-white sm:text-lg md:text-xl">
                       {link.name}
                     </div>
-                    <div className="text-xs text-white opacity-90 sm:text-sm md:text-base">
+                    <div className="font-outfit text-xs text-white/60 sm:text-sm md:text-base">
                       {link.subline}
                     </div>
                   </div>
