@@ -77,7 +77,7 @@ const links: LinkData[] = [
     name: "Gmail",
     icon: Mail,
     href: "mailto:clubdeviators@gmail.com",
-    subline: "Contact us on Gmail",
+    subline: "(clubdeviators@gmail.com)",
     color: "#EA4335", // Gmail red
   },
 ];

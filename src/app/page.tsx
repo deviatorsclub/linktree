@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import links from "@/data/links";
 import LOGO from "@/assets/sm.svg";
 import AnimatedBackground from "@/components/AnimatedBackground";
@@ -53,7 +54,7 @@ export default function LandingPage() {
         </motion.div>
 
         {/* Main content container with responsive width */}
-        <div className="w-full max-w-sm space-y-6 sm:max-w-md sm:space-y-8 md:max-w-lg lg:max-w-xl xl:max-w-2xl">
+        <div className="w-full max-w-lg space-y-6 sm:max-w-2xl sm:space-y-8 md:max-w-3xl lg:max-w-4xl">
           {/* Brand section with logo and title */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -94,35 +95,52 @@ export default function LandingPage() {
             variants={containerVariants}
             initial="hidden"
             animate="show"
-            className="space-y-3 sm:space-y-4"
+            className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:gap-5"
           >
-            {links.map((link) => (
-              <motion.div key={link.name} variants={itemVariants}>
+            {links.map((link, index) => (
+              <motion.div
+                key={link.name}
+                variants={itemVariants}
+                className={
+                  index === links.length - 1 && links.length % 2 !== 0
+                    ? "sm:col-span-2"
+                    : ""
+                }
+              >
                 <Link
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass-card-hover relative flex transform items-center justify-start space-x-3 rounded-2xl p-3 shadow-2xl transition-all duration-500 hover:scale-[1.02] sm:space-x-4 sm:p-4"
+                  className="glass-card-hover group relative flex items-center justify-between rounded-2xl p-2.5 transition-all duration-300 sm:p-3"
                 >
-                  {/* Brand-colored icon container */}
-                  <div
-                    className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full sm:h-12 sm:w-12 md:h-14 md:w-14"
-                    style={{ backgroundColor: link.color }}
-                  >
-                    <link.icon
-                      className="h-5 w-5 text-white sm:h-6 sm:w-6 md:h-7 md:w-7"
-                      aria-hidden="true"
-                    />
+                  <div className="flex items-center space-x-3 sm:space-x-4">
+                    {/* Brand-colored icon container */}
+                    <div
+                      className="relative z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl transition-transform duration-300 sm:h-12 sm:w-12 sm:group-hover:scale-110"
+                      style={{ backgroundColor: link.color }}
+                    >
+                      <link.icon
+                        className="h-5 w-5 text-white sm:h-6 sm:w-6"
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    {/* Link text content */}
+                    <div className="relative z-10 flex flex-col items-start justify-center font-outfit transition-colors duration-300 sm:flex-row sm:items-center">
+                      <span className="text-base font-semibold tracking-wide text-white/90 sm:text-lg sm:group-hover:text-white">
+                        {link.name}
+                      </span>
+                      {link.name === "Gmail" && (
+                        <span className="mt-0.5 text-xs font-normal text-white/70 sm:ml-2 sm:mt-0.5 sm:text-sm">
+                          {link.subline}
+                        </span>
+                      )}
+                    </div>
                   </div>
 
-                  {/* Link text content */}
-                  <div className="relative z-10">
-                    <div className="font-outfit text-base font-bold text-white sm:text-lg md:text-xl">
-                      {link.name}
-                    </div>
-                    <div className="font-outfit text-xs text-white/60 sm:text-sm md:text-base">
-                      {link.subline}
-                    </div>
+                  {/* Elegant Arrow Animation (Desktop only) */}
+                  <div className="relative z-10 hidden -translate-x-4 pr-2 opacity-0 transition-all duration-300 sm:block sm:group-hover:-translate-x-1 sm:group-hover:opacity-100">
+                    <ArrowRight className="h-5 w-5 text-white/70" />
                   </div>
                 </Link>
               </motion.div>
