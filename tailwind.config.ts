@@ -9,16 +9,33 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // Custom font families
+      // Font families — matching deviatorsclub.tech
       fontFamily: {
-        pixelify: ["var(--font-pixelify)"],
-        quicksand: ["var(--font-quicksand)", "sans-serif"],
+        outfit: ["var(--font-outfit)", "system-ui", "sans-serif"],
+        heading: ["var(--font-heading)", "system-ui", "sans-serif"],
       },
 
-      // Custom colors
+      // Brand color palette — matching deviatorsclub.tech
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        brand: {
+          DEFAULT: "hsl(var(--brand))",
+          dark: "hsl(var(--brand-dark))",
+          light: "hsl(var(--brand-light))",
+        },
+        surface: {
+          DEFAULT: "hsl(var(--surface))",
+          card: "hsl(var(--surface-card))",
+          elevated: "hsl(var(--surface-elevated))",
+        },
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        border: "hsl(var(--border))",
+      },
+
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
 
       // Custom animations

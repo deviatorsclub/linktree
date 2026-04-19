@@ -1,26 +1,25 @@
 import type { Metadata } from "next";
-import { Quicksand } from "next/font/google";
-import localFont from "next/font/local";
+import { Outfit, Unbounded } from "next/font/google";
 import "./globals.css";
 
-// Local Pixelify font configuration
-const pixelifySans = localFont({
-  src: "../../public/fonts/Pixelify.ttf",
-  display: "swap",
-  fallback: ["cursive", "Arial", "sans-serif"],
-  preload: true,
-  variable: "--font-pixelify",
-});
-
-// Secondary font for body text
-const quicksand = Quicksand({
-  weight: ["400", "500", "700"],
+// Outfit — body text (variable, 100–900) — matching deviatorsclub.tech
+const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
-  fallback: ["Arial", "sans-serif"],
+  fallback: ["system-ui", "Arial", "sans-serif"],
   preload: true,
-  variable: "--font-quicksand",
-  adjustFontFallback: false, // Better performance
+  variable: "--font-outfit",
+  adjustFontFallback: false,
+});
+
+// Unbounded — headings (variable, weight 200–900) — matching deviatorsclub.tech
+const unbounded = Unbounded({
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["system-ui", "Arial", "sans-serif"],
+  preload: true,
+  variable: "--font-heading",
+  adjustFontFallback: false,
 });
 
 // Optimized SEO metadata
@@ -76,10 +75,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
-      className={`${pixelifySans.variable} ${quicksand.variable}`}
+      className={`${outfit.variable} ${unbounded.variable}`}
       suppressHydrationWarning
     >
-      <body className={`${quicksand.className} antialiased`}>{children}</body>
+      <body className="min-h-screen antialiased">{children}</body>
     </html>
   );
 }

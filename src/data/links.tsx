@@ -1,18 +1,17 @@
 import { Globe, Mail } from "lucide-react";
 import { FaDiscord, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import Image from "next/image";
 
 // Custom logo icon component
-const LogoIcon: React.ComponentType<React.SVGProps<SVGSVGElement>> = (
-  props,
-) => (
-  <svg {...props} viewBox="0 0 32 32" fill="currentColor">
-    <foreignObject width="32" height="32">
-      <Image src="/logo.png" alt="DevArena Logo" width={32} height={32} />
-    </foreignObject>
-  </svg>
-);
+// const LogoIcon: React.ComponentType<React.SVGProps<SVGSVGElement>> = (
+//   props,
+// ) => (
+//   <svg {...props} viewBox="0 0 32 32" fill="currentColor">
+//     <foreignObject width="32" height="32">
+//       <Image src="/logo.png" alt="DevArena Logo" width={32} height={32} />
+//     </foreignObject>
+//   </svg>
+// );
 
 // Interface for link data structure
 export interface LinkData {
@@ -78,7 +77,7 @@ const links: LinkData[] = [
     name: "Gmail",
     icon: Mail,
     href: "mailto:clubdeviators@gmail.com",
-    subline: "Contact us on Gmail",
+    subline: "(clubdeviators@gmail.com)",
     color: "#EA4335", // Gmail red
   },
 ];
