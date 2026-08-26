@@ -45,18 +45,38 @@ const zalandoSansExpanded = localFont({
 // Optimized SEO metadata
 export const metadata: Metadata = {
   title: "Linktree | Deviators Club",
-  description: "Connect with Deviators Club - Code. Create. Deviate.",
-  keywords: ["Deviators Club", "coding", "development", "community", "links"],
+  description:
+    "Official links for Deviators Club at Dronacharya College of Engineering (DCE). Connect with our coding community, access our resources, and deviate from the norm.",
+  keywords: [
+    "deviators club",
+    "deviators club links",
+    "deviators club linktree",
+    "linktree",
+    "links",
+    "coding",
+    "community",
+    "dronacharya",
+    "dce",
+    "dronacharya college",
+    "dronacharya clubs",
+    "deviators dronacharya",
+    "dronacharya college of engineering",
+    "dce links",
+    "dce linktree",
+    "tech club",
+    "programming",
+  ],
   authors: [{ name: "Deviators Club" }],
 
   openGraph: {
     title: "Linktree | Deviators Club",
-    description: "Connect with Deviators Club - Code. Create. Deviate.",
-    url: "https://linktree.deviatorsdce.tech",
+    description:
+      "Official links for Deviators Club at Dronacharya College of Engineering (DCE). Connect with our coding community, access our resources, and deviate from the norm.",
+    url: "https://linktree.deviators.club",
     siteName: "Deviators Club",
     images: [
       {
-        url: "https://linktree.deviatorsdce.tech/og-image.png",
+        url: "https://linktree.deviators.club/og-image.png",
         width: 1200,
         height: 630,
         alt: "Deviators Club - Code. Create. Deviate.",
@@ -69,9 +89,10 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Linktree | Deviators Club",
-    description: "Connect with Deviators Club - Code. Create. Deviate.",
+    description:
+      "Official links for Deviators Club at Dronacharya College of Engineering (DCE).",
     creator: "@deviatorsclub",
-    images: ["https://linktree.deviatorsdce.tech/og-image.png"],
+    images: ["https://linktree.deviators.club/og-image.png"],
   },
 
   robots: {

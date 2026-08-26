@@ -1,7 +1,27 @@
-/* Tailwind CSS imports */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-brand: hsl(213 100% 33%);
+  --color-brand-dark: hsl(210 100% 20%);
+  --color-brand-light: hsl(215 100% 81%);
+  --color-surface: hsl(0 0% 4%);
+  --color-surface-card: hsl(0 0% 100% / 0.05);
+  --color-surface-elevated: hsl(0 0% 100% / 0.1);
+  --color-background: hsl(0 0% 3.9%);
+  --color-foreground: hsl(0 0% 98%);
+  --color-border: hsl(0 0% 14.9%);
+  --color-ring: hsl(0 0% 83.1%);
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+  --font-zalando: var(--font-zalando), system-ui, sans-serif;
+  --font-zalando-expanded: var(--font-zalando-expanded), system-ui, sans-serif;
+  --font-outfit: var(--font-zalando), system-ui, sans-serif;
+  --font-heading: var(--font-zalando-expanded), system-ui, sans-serif;
+  --animate-fade-in: fadeIn 0.5s ease-in-out;
+  --animate-slide-up: slideUp 0.3s ease-out;
+  --blur-xs: 2px;
+}
 
 /* ── Smooth scrolling ── */
 html {
@@ -25,7 +45,7 @@ html {
   }
 }
 
-/* ── Design tokens (dark-only, matching deviatorsclub.tech) ── */
+/* ── Design tokens ── */
 @layer base {
   :root {
     /* Brand palette */
@@ -74,6 +94,7 @@ h5,
 h6 {
   font-family: var(--font-zalando-expanded), system-ui, sans-serif;
   font-weight: 900;
+  letter-spacing: -0.03em;
 }
 
 /* ── Global resets ── */
@@ -111,7 +132,7 @@ body {
   }
 }
 
-/* ── Glass card component (matching deviatorsclub.tech) ── */
+/* ── Glass card component ── */
 @layer components {
   .glass-card {
     background: rgba(255, 255, 255, 0.04);
@@ -139,7 +160,7 @@ body {
   }
 }
 
-/* ── Animation keyframes (matching deviatorsclub.tech) ── */
+/* ── Animation keyframes ── */
 @keyframes float-slow {
   0%,
   100% {

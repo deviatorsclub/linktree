@@ -1,17 +1,13 @@
-import { Globe, Mail } from "lucide-react";
-import { FaDiscord, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-
-// Custom logo icon component
-// const LogoIcon: React.ComponentType<React.SVGProps<SVGSVGElement>> = (
-//   props,
-// ) => (
-//   <svg {...props} viewBox="0 0 32 32" fill="currentColor">
-//     <foreignObject width="32" height="32">
-//       <Image src="/logo.png" alt="DevArena Logo" width={32} height={32} />
-//     </foreignObject>
-//   </svg>
-// );
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  Globe02Icon,
+  Mail01Icon,
+  DiscordIcon,
+  InstagramIcon,
+  Linkedin02Icon,
+  WhatsappIcon,
+  NewTwitterRectangleIcon,
+} from "@hugeicons/core-free-icons";
 
 // Interface for link data structure
 export interface LinkData {
@@ -24,58 +20,53 @@ export interface LinkData {
 
 // Social media and contact links configuration
 const links: LinkData[] = [
-  /*{
-    name: "DevArena",
-    icon: LogoIcon,
-    href: "https://devarena.deviatorsclub.tech/",
-    subline: "A 30h hackathon",
-    color: "#2F4EF5", // DevArena blue
-  },*/
   {
     name: "Website",
-    icon: Globe,
+    icon: (props) => <HugeiconsIcon icon={Globe02Icon} {...props} />,
     href: "https://www.deviators.club/",
     subline: "Visit our website",
     color: "#0047AB", // Cobalt blue
   },
   {
     name: "WhatsApp",
-    icon: FaWhatsapp,
+    icon: (props) => <HugeiconsIcon icon={WhatsappIcon} {...props} />,
     href: "https://chat.whatsapp.com/Fq2znTYctiq3cD4Y1ebHeR",
     subline: "Connect with us",
     color: "#25D366", // WhatsApp green
   },
   {
     name: "Instagram",
-    icon: FaInstagram,
+    icon: (props) => <HugeiconsIcon icon={InstagramIcon} {...props} />,
     href: "https://www.instagram.com/deviatorsclub/",
     subline: "Follow our updates",
     color: "#E91E63", // Instagram pink
   },
   {
     name: "Discord",
-    icon: FaDiscord,
+    icon: (props) => <HugeiconsIcon icon={DiscordIcon} {...props} />,
     href: "https://discord.gg/bJ8U5FTb29",
     subline: "Join our community",
     color: "#5865F2", // Discord blurple
   },
   {
     name: "LinkedIn",
-    icon: FaLinkedin,
+    icon: (props) => <HugeiconsIcon icon={Linkedin02Icon} {...props} />,
     href: "https://linkedin.com/company/deviatorsclub",
     subline: "Professional network",
     color: "#0A66C2", // LinkedIn blue
   },
   {
     name: "X",
-    icon: FaXTwitter,
+    icon: (props) => (
+      <HugeiconsIcon icon={NewTwitterRectangleIcon} {...props} />
+    ),
     href: "https://x.com/deviatorsclub",
     subline: "Follow us on X",
     color: "#000000", // X black
   },
   {
     name: "Gmail",
-    icon: Mail,
+    icon: (props) => <HugeiconsIcon icon={Mail01Icon} {...props} />,
     href: "mailto:clubdeviators@gmail.com",
     subline: "(clubdeviators@gmail.com)",
     color: "#EA4335", // Gmail red
