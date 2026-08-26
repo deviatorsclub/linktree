@@ -12,7 +12,10 @@ import {
 // Interface for link data structure
 export interface LinkData {
   name: string;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  icon: React.ComponentType<{
+    className?: string;
+    "aria-hidden"?: boolean | "true" | "false";
+  }>;
   href: string;
   subline: string;
   color: string;
