@@ -77,14 +77,14 @@ export default function LandingPage() {
             {/* Main title and tagline */}
             <div className="space-y-1 text-center sm:space-y-2 md:-mt-20">
               <h1
-                className="whitespace-nowrap font-heading text-4xl font-black drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl"
+                className="whitespace-nowrap font-zalando-expanded text-4xl font-black drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl"
                 style={{
                   textShadow: "0 0 4px rgba(255, 255, 255, 0.3)",
                 }}
               >
                 Deviators Club
               </h1>
-              <p className="font-outfit text-base text-gray-300 drop-shadow-md sm:text-lg md:text-xl">
+              <p className="font-zalando text-base text-gray-300 drop-shadow-md sm:text-lg md:text-xl">
                 Code. Create. Deviate.
               </p>
             </div>
@@ -126,7 +126,7 @@ export default function LandingPage() {
                     </div>
 
                     {/* Link text content */}
-                    <div className="relative z-10 flex flex-col items-start justify-center font-outfit transition-colors duration-300 sm:flex-row sm:items-center">
+                    <div className="relative z-10 flex flex-col items-start justify-center font-zalando transition-colors duration-300 sm:flex-row sm:items-center">
                       <span className="text-base font-semibold tracking-wide text-white/90 sm:text-lg sm:group-hover:text-white">
                         {link.name}
                       </span>

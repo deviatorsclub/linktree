@@ -34,7 +34,7 @@ const links: LinkData[] = [
   {
     name: "Website",
     icon: Globe,
-    href: "https://www.deviatorsclub.tech/",
+    href: "https://www.deviators.club/",
     subline: "Visit our website",
     color: "#0047AB", // Cobalt blue
   },
@@ -62,7 +62,7 @@ const links: LinkData[] = [
   {
     name: "LinkedIn",
     icon: FaLinkedin,
-    href: "https://linkedin.com/company/deviators-club",
+    href: "https://linkedin.com/company/deviatorsclub",
     subline: "Professional network",
     color: "#0A66C2", // LinkedIn blue
   },

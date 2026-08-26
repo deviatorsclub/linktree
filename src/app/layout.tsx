@@ -1,25 +1,45 @@
 import type { Metadata } from "next";
-import { Outfit, Unbounded } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-// Outfit — body text (variable, 100–900) — matching deviatorsclub.tech
-const outfit = Outfit({
-  subsets: ["latin"],
+// Zalando Sans - body text & paragraphs (variable, 200-900)
+const zalandoSans = localFont({
+  src: [
+    {
+      path: "../fonts/zalando-sans-latin-wght-normal.woff2",
+      weight: "200 900",
+      style: "normal",
+    },
+    {
+      path: "../fonts/zalando-sans-latin-wght-italic.woff2",
+      weight: "200 900",
+      style: "italic",
+    },
+  ],
   display: "swap",
   fallback: ["system-ui", "Arial", "sans-serif"],
   preload: true,
-  variable: "--font-outfit",
-  adjustFontFallback: false,
+  variable: "--font-zalando",
 });
 
-// Unbounded — headings (variable, weight 200–900) — matching deviatorsclub.tech
-const unbounded = Unbounded({
-  subsets: ["latin"],
+// Zalando Sans Expanded - headings (variable, 200-900)
+const zalandoSansExpanded = localFont({
+  src: [
+    {
+      path: "../fonts/zalando-sans-expanded-latin-wght-normal.woff2",
+      weight: "200 900",
+      style: "normal",
+    },
+    {
+      path: "../fonts/zalando-sans-expanded-latin-wght-italic.woff2",
+      weight: "200 900",
+      style: "italic",
+    },
+  ],
   display: "swap",
   fallback: ["system-ui", "Arial", "sans-serif"],
   preload: true,
-  variable: "--font-heading",
-  adjustFontFallback: false,
+  variable: "--font-zalando-expanded",
 });
 
 // Optimized SEO metadata
@@ -75,7 +95,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${unbounded.variable}`}
+      className={`${zalandoSans.variable} ${zalandoSansExpanded.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-screen antialiased">{children}</body>

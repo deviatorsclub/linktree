@@ -11,8 +11,15 @@ const config: Config = {
     extend: {
       // Font families — matching deviatorsclub.tech
       fontFamily: {
-        outfit: ["var(--font-outfit)", "system-ui", "sans-serif"],
-        heading: ["var(--font-heading)", "system-ui", "sans-serif"],
+        zalando: ["var(--font-zalando)", "system-ui", "sans-serif"],
+        "zalando-expanded": [
+          "var(--font-zalando-expanded)",
+          "system-ui",
+          "sans-serif",
+        ],
+        // kept for backward compatibility if missed
+        outfit: ["var(--font-zalando)", "system-ui", "sans-serif"],
+        heading: ["var(--font-zalando-expanded)", "system-ui", "sans-serif"],
       },
 
       // Brand color palette — matching deviatorsclub.tech
