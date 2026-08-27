@@ -7,6 +7,7 @@ import {
   Linkedin02Icon,
   WhatsappIcon,
   NewTwitterRectangleIcon,
+  Certificate01Icon,
 } from "@hugeicons/core-free-icons";
 
 // Interface for link data structure
@@ -29,6 +30,13 @@ const links: LinkData[] = [
     href: "https://www.deviators.club/",
     subline: "Visit our website",
     color: "#0047AB", // Cobalt blue
+  },
+  {
+    name: "Certificate Verification",
+    icon: (props) => <HugeiconsIcon icon={Certificate01Icon} {...props} />,
+    href: "https://verify.deviators.club/",
+    subline: "Verify your certificates",
+    color: "#6366f1", // Indigo
   },
   {
     name: "WhatsApp",
